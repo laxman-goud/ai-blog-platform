@@ -1,13 +1,18 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Sidebar from '../../components/admin/Sidebar'
+import { useAppContext } from '../../context/AppContext'
 
 const Layout = () => {
 
-    const navigate = useNavigate()
+    const {axios, navigate, setToken} = useAppContext()
 
     const logout = () => {
+        localStorage.removeItem('token')
+        setToken(null)
+        // eslint-disable-next-line react-hooks/immutability
+        axios.defaults.headers.common['Authorization'] = null
         navigate('/')
     }
 

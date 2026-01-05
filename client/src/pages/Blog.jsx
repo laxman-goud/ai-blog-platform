@@ -1,15 +1,19 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { assets, blog_data, comments_data } from '../assets/assets'
+import { assets } from '../assets/assets'
 import Navbar from '../components/Navbar'
 import Moment from 'moment'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
+import { useAppContext } from '../context/AppContext'
+import toast from 'react-hot-toast'
 
 const Blog = () => {
 
-    const {id} = useParams()
+    const { id } = useParams()
+
+    const { axios } = useAppContext()
 
     const [data, setData] = useState(null)
     const [comments, setComments] = useState([])
@@ -17,16 +21,49 @@ const Blog = () => {
     const [content, setContent] = useState('')
 
     const fetchBlogData = async () => {
-        const data = blog_data.find(item => item._id === id)
-        setData(data)
+        try {
+            const { data } = await axios.get(`/api/blog/${id}`)
+            data.success ? setData(data.blog) : toast.error(data.message)
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     const fetchComments = async () => {
-        setComments(comments_data)
+        try {
+            const { data } = await axios.post('/api/blog/comments', { blogId: id })
+
+            if (data.success) {
+                setComments(data.comments)
+            }
+            else {
+                toast.error(data.message)
+            }
+        }
+        catch (error) {
+            toast.error(error.message)
+        }
     }
 
-    const addComment =  async(e) => {
+    const addComment = async (e) => {
         e.preventDefault()
+        try {
+            const { data } = await axios.post('/api/blog/add-comment', { blog: id, name, content })
+            if (data.success) {
+                setName('')
+                setContent('')
+                toast.success(data.message)
+            }
+            else {
+            console.log(data);
+
+                toast.error(data.message)
+            }
+        } catch (error) {
+            console.log(error);
+            
+            toast.error(error.message)
+        }
     }
 
     useEffect(() => {
@@ -50,7 +87,7 @@ const Blog = () => {
             <div className='mx-5 max-w-5xl md:mx-auto my-10 mt-6'>
                 <img src={data.image} alt="img" className='rounded-3xl mb-5' />
 
-                <div className='rich-text max-w-3xl mx-auto' dangerouslySetInnerHTML={{__html: data.description}}></div>
+                <div className='rich-text max-w-3xl mx-auto' dangerouslySetInnerHTML={{ __html: data.description }}></div>
 
                 {/* comments section */}
                 <div className='mt-14 mb-10 max-w-3xl mx-auto'>
@@ -68,13 +105,13 @@ const Blog = () => {
                         ))}
                     </div>
                 </div>
-                
+
                 {/* Add comment section */}
                 <div className='max-w-3xl mx-auto'>
                     <p className='font-semibold mb-4'>Add your comment</p>
                     <form onSubmit={addComment} className='flex flex-col items-start gap-4 max-w-lg' >
-                        <input onChange={(e)=> setName(e.target.value)} value={name} type="text" placeholder='Name' required className='w-full p-2 border border-gray-300 rounded outline-none' />
-                        <textarea onChange={(e)=> setContent(e.target.value)} value={content} className='w-full p-2 border border-gray-300 rounded outline-none h-48' placeholder='Comment' required ></textarea>
+                        <input onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='Name' required className='w-full p-2 border border-gray-300 rounded outline-none' />
+                        <textarea onChange={(e) => setContent(e.target.value)} value={content} className='w-full p-2 border border-gray-300 rounded outline-none h-48' placeholder='Comment' required ></textarea>
                         <button type='submit' className='bg-primary text-white rounded p-2 px-8 hover:scale-102 transition-all cursor-pointer'>Submit</button>
                     </form>
                 </div>
@@ -89,12 +126,12 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Footer */}
             <Footer />
 
         </div>
-    ): (
+    ) : (
         <Loader />
     )
 }
