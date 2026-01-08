@@ -50,7 +50,7 @@ const CommentTableItem = ({comment, fetchComments}) => {
                 <br />
                 <b className='font-medium text-gray-600'>Name</b> : {comment.name}
                 <br />
-                <b className='font-medium text-gray-600'>Comment</b> : {comment.comment}
+                <b className='font-medium text-gray-600'>Comment</b> : {comment.content}
             </td>
             <td className='px-6 py-4 max-sm:hidden'>
                 {BlogDate.toDateString()}
