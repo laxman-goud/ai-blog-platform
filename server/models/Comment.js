@@ -1,12 +1,43 @@
 import mongoose from 'mongoose'
 
-const commentSchema = new mongoose.Schema({
-    blog: {type: mongoose.Schema.Types.ObjectId, ref: 'blog', required: true},
-    name: {type: String, required: true},
-    content: {type: String, required: true},
-    isApproved: {type: Boolean, default: false}
-}, {timestamps: true})
+/**
+ * Comment Schema
+ * Represents a user comment on a blog post
+ */
+const commentSchema = new mongoose.Schema(
+    {
+        // Reference to the related blog
+        blog: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'blog',
+            required: true
+        },
 
-const Comment = mongoose.model('Comment', commentSchema);
+        // Name of the commenter
+        name: {
+            type: String,
+            required: true
+        },
 
-export default Comment;
+        // Comment text content
+        content: {
+            type: String,
+            required: true
+        },
+
+        // Approval status (false by default)
+        isApproved: {
+            type: Boolean,
+            default: false
+        }
+    },
+    {
+        // Automatically adds createdAt and updatedAt timestamps
+        timestamps: true
+    }
+)
+
+// Create Comment model
+const Comment = mongoose.model('Comment', commentSchema)
+
+export default Comment
