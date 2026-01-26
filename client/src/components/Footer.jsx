@@ -51,7 +51,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <p className='py-4 text-center text-sm md:text-base text-gray-500/80'>
-                Copyright 2026  <a href="https://laxman-thedev.vercel.app" className='underline' >Laxman</a> – All Rights Reserved.
+                Copyright 2026  <a href={import.meta.env.VITE_PORTFOLIO_URL} className='underline' >Laxman</a> – All Rights Reserved.
             </p>
         </div>
     )
