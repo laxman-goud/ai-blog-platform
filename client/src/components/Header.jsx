@@ -47,17 +47,19 @@ const Header = () => {
 
                 {/* Hero heading */}
                 <h1 className='text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700'>
-                    Your own <span className='text-primary'> blogging</span>
+                    Create, publish, and manage
                     <br />
-                    platform.
+                    <span className='text-primary'>blogs with AI</span>
+
                 </h1>
 
                 {/* Hero description */}
                 <p className='my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500'>
-                    This is your space to think out loud, to share your ideas and
-                    stories with the world. Whether you're a seasoned writer or
-                    just starting out, this platform is designed to help you
-                    express yourself freely and connect with others.
+                    <p className='my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500'>
+                        QuickBlog is an AI-powered blogging platform that helps creators write
+                        better content faster. Generate blogs using AI, publish with ease,
+                        and manage everything from a powerful admin dashboard.
+                    </p>
                 </p>
 
                 {/* Search form */}
