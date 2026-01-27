@@ -15,11 +15,10 @@ const ai = new GoogleGenAI({
  */
 async function main(prompt) {
     const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
-        contents: prompt
-    })
+        model: "gemini-3-flash-preview",
+        contents: prompt,
+    });
 
-    // Return plain text output from Gemini
     return response.text
 }
 
