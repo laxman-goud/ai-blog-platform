@@ -174,12 +174,9 @@ npm run dev
 
 ---
 
-## 🚀 Demo (Live Links)
+## 🚀 Demo (Live Link)
 
-* **Client:** *Add Vercel client URL here*
-* **Server:** *Add Vercel server URL here*
-
-*(Update links after deployment)*
+* **Demo:** *https://quick-blog-platform.vercel.app*
 
 ---
 
