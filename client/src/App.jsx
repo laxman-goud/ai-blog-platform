@@ -25,6 +25,7 @@ import { Toaster } from 'react-hot-toast'
 
 // Global app context
 import { useAppContext } from './context/AppContext'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   // Get auth token from context
@@ -53,7 +54,11 @@ const App = () => {
           <Route path='comments' element={<Comments />} />
           <Route path='addBlog' element={<AddBlog />} />
           <Route path='listBlog' element={<ListBlog />} />
+
         </Route>
+        
+        {/* Catch-all route for 404 Not Found */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )
