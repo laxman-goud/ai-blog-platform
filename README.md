@@ -1,4 +1,4 @@
-# 🧠 AI Blog Platform
+#  AI Blog Platform
 
 An **AI-powered full-stack blogging platform** built using the **MERN stack**, featuring **admin moderation**, **JWT authentication**, **image uploads**, **comment approval**, and **AI-assisted blog content generation using Google Gemini**.
 
@@ -6,40 +6,40 @@ This project is designed to be **production-ready**, **scalable**, and **develop
 
 ---
 
-## ✨ Features
+##  Features
 
-### 📝 Blog Management
+###  Blog Management
 
 * Create, edit, delete, publish/unpublish blogs
 * Rich text editor (Quill) with image support
 * Category-based blog filtering
 * Draft & publish workflow
 
-### 🤖 AI Content Generation
+###  AI Content Generation
 
 * Generate blog content using **Google Gemini AI**
 * One-click AI content insertion into editor
 * Markdown → HTML rendering
 
-### 💬 Comments System
+###  Comments System
 
 * Users can add comments on blogs
 * Admin approval system for comments
 * Admin can delete or approve comments
 
-### 🔐 Admin & Security
+###  Admin & Security
 
 * Admin login using JWT authentication
 * Protected admin routes
 * Secure API access via middleware
 
-### 📊 Admin Dashboard
+###  Admin Dashboard
 
 * Blog, comment, and draft statistics
 * Recent blogs overview
 * Centralized moderation panel
 
-### 🌐 Frontend Experience
+###  Frontend Experience
 
 * Responsive UI with Tailwind CSS
 * Blog search and category filters
@@ -83,7 +83,7 @@ AI Blog Platform/
 
 ---
 
-## 🛠 Technologies Used
+##  Technologies Used
 
 ### Frontend
 
@@ -113,7 +113,7 @@ AI Blog Platform/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ### 1️⃣ Clone the repository
 
@@ -174,7 +174,7 @@ npm run dev
 
 ---
 
-## 🚀 Demo (Live Link)
+##  Demo (Live Link)
 
 * **Demo:** *https://quick-blog-platform.vercel.app*
 
@@ -196,7 +196,7 @@ Please read the guidelines before contributing:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Laxman Goud**
 Full-Stack Developer | MERN | AI-Powered Applications
